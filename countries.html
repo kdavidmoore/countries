@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<title>Countries of the World</title>
+		<style>
+			ul {
+				list-style-type: none;
+				margin: 20px 20px auto;
+				text-align: right;
+			}
+			li {
+				display: block;
+				margin-bottom: 5px;
+			}
+		</style>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+		<script type="text/javascript" src="controller.js"></script>
+	</head>
+	<body>
+		<div ng-controller="myController">
+			<table border=1>
+				<thead>
+					<th>Country</th>
+					<th>Population</th>
+					<th>Chief of State</th>
+					<th>Flag Colors</th>
+				</thead>
+				<tbody>
+					<tr ng-repeat="country in countries">
+						<td>{{country.name}}</td>
+						<td>{{country.population}}</td>
+						<td>{{country.chiefOfState}}</td>
+						<td>{{country.flagColors}}</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<form name="userForm" ng-submit="addCountry(userForm.$valid)" nonvalidate>
+				<ul>
+					<li><label>Name: </label><input type="text" ng-model="newName"></li>
+					<li><label>Population: </label><input type="number" ng-model="newPop"></li>
+					<li><label>Chief of State: </label><input type="text" ng-model="newChief"></li>
+					<li><label>Flag Colors: </label><input type="text" ng-model="newColors"></li>
+					<input type="submit" value="Add Country">
+				</ul>
+			</form>
+		</div>
+
+	</body>
+</html>
