@@ -3,9 +3,15 @@
 	<head>
 		<title>Countries of the World</title>
 		<style>
+			table {
+				margin: 20px;
+			}
+			#form-wrapper {
+				position: absolute;
+				left: 33%;
+			}
 			ul {
 				list-style-type: none;
-				margin: 20px 20px auto;
 				text-align: right;
 			}
 			li {
@@ -36,15 +42,17 @@
 				</tbody>
 			</table>
 
-			<form name="userForm" ng-submit="addCountry(userForm.$valid)" nonvalidate>
-				<ul>
-					<li><label>Name: </label><input type="text" ng-model="newName"></li>
-					<li><label>Population: </label><input type="number" ng-model="newPop"></li>
-					<li><label>Chief of State: </label><input type="text" ng-model="newChief"></li>
-					<li><label>Flag Colors: </label><input type="text" ng-model="newColors"></li>
-					<input type="submit" value="Add Country">
-				</ul>
-			</form>
+			<div id="form-wrapper">
+				<form name="userForm" ng-submit="addCountry(userForm.$valid)" nonvalidate>
+					<ul>
+						<li><label>Name: </label><input type="text" ng-model="newName" required></li>
+						<li><label>Population: </label><input type="number" ng-model="newPop" required></li>
+						<li><label>Chief of State: </label><input type="text" ng-model="newChief" required></li>
+						<li><label>Flag Colors: </label><input type="text" ng-model="newColors" required></li>
+						<input type="submit" value="Add Country">
+					</ul>
+				</form>
+			</div>
 		</div>
 
 	</body>
