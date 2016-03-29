@@ -62,7 +62,7 @@ var myApp = angular.module('myApp', []).controller('myController', function($sco
 		}
 	];
 
-	$scope.addCountry = function(name, population, chiefOfState, flagColors) {
+	$scope.addCountry = function() {
 		$scope.countries.push({
 			name: $scope.newName,
 			population: $scope.newPop,

@@ -43,13 +43,13 @@
 			</table>
 
 			<div id="form-wrapper">
-				<form name="userForm" ng-submit="addCountry(userForm.$valid)" nonvalidate>
+				<form name="form" ng-submit="addCountry()" novalidate>
 					<ul>
-						<li><label>Name: </label><input type="text" ng-model="newName" required></li>
-						<li><label>Population: </label><input type="number" ng-model="newPop" required></li>
-						<li><label>Chief of State: </label><input type="text" ng-model="newChief" required></li>
-						<li><label>Flag Colors: </label><input type="text" ng-model="newColors" required></li>
-						<input type="submit" value="Add Country">
+						<li><label>Name: </label><input type="text" ng-model="newName" name="cName" ng-minlength="3" required></li>
+						<li><label>Population: </label><input type="number" ng-model="newPop" name="cPop" min="0" max="7000000000" required></li>
+ 						<li><label>Chief of State: </label><input type="text" ng-model="newChief" name="cChief" ng-minlength="3" required></li>
+						<li><label>Flag Colors: </label><input type="text" ng-model="newColors" name="cColors" ng-minlength="3" required></li>
+						<input type="submit" value="Add Country" ng-disabled="form.$invalid">
 					</ul>
 				</form>
 			</div>
