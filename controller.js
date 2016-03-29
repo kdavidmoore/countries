@@ -63,12 +63,27 @@ var myApp = angular.module('myApp', []).controller('myController', function($sco
 	];
 
 	$scope.addCountry = function() {
+
+		// can also put form validation here instead of using angular:
+		if ($scope.newName.length < 3 || $scope.newChief.length < 3 || $scope.newColors.length < 3) {
+			$scope.message = "The name, chief of state, and flag color must be greater than three characters long.";
+			return;
+		} else if ($scope.newPop < 100) {
+			$scope.message = "The population must be greater than 100.";
+			return;
+		}
+
 		$scope.countries.push({
 			name: $scope.newName,
 			population: $scope.newPop,
 			chiefOfState: $scope.newChief,
 			flagColors: $scope.newColors
 		});
+	}
+
+	$scope.removeCountry = function(i) {
+		//$scope.message = $scope.countries[i].name + ' was removed.';
+		$scope.countries.splice(i, 1);
 	}
 
 })
